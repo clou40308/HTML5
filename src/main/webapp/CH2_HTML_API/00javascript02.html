@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        #outer {
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+
+        #inner {
+            width: 100px;
+            height: 100px;
+            background: silver;
+            margin: 34px auto 50px auto;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        //event flow
+        $(document).ready(init);
+        function init() {
+            document.getElementById("outer").addEventListener("click", outerHandler, false);//use capture
+            document.getElementById("inner").addEventListener("click", innerHandler);
+        }
+        function outerHandler(e) {
+            alert("outer: this:" + this.id + " target:" + e.target.id);
+        }
+        function innerHandler(e) {
+            alert("inner: this:" + this.id + " target:" + e.target.id);
+            e.stopPropagation();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="outer">Outer
+        <div id="inner">Inner</div>
+    </div>
+
+</body>
+
+</html>

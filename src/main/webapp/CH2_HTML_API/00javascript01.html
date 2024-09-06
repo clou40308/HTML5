@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="../jquery.js"></script>
+    <script>
+        var value = 100;
+        $(document).ready(init);
+        function init() {
+            document.getElementById("myBtn2").onclick = clickHandler;
+            document.getElementById("myBtn2").onclick = clickHandler1;
+            document.getElementById("myBtn3").addEventListener("click", clickHandler);
+            document.getElementById("myBtn3").addEventListener("click", clickHandler1);
+        }
+        function clickHandler() {
+            alert(this + " / " + this.value);
+        }
+        function clickHandler1() {
+            alert("Hello!");
+        }
+    </script>
+</head>
+
+<body>
+    <button value="value1" id="myBtn1" onclick="clickHandler()">Mybtn1</button>
+    <button value="value2" id="myBtn2">Mybtn2</button>
+    <button value="value3" id="myBtn3">Mybtn3</button>
+</body>
+
+</html>
