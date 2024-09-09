@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        var ar = ["Ken", 21];
+        for (var i = 0; i < ar.length; i++) {
+            document.write("ar[" + i + "]=" + ar[i] + "<br>");
+        }
+
+        var obj = { name: "Ken", "age": 21 };
+        for (var i in obj) {
+            document.write(i + ":" + obj[i] + "<br>");
+        }
+
+        var abc = 5;
+        document.write("abc=" + abc + "<br>");
+        document.write("window.abc=" + window.abc + "<br>");
+        document.write("window[\"abc\"]=" + window["abc"] + "<br>");
+        document.write("window[abc]=" + window["a" + "bc"] + "<br>");
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

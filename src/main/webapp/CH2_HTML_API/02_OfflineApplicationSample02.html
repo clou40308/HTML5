@@ -1,58 +1,65 @@
 ﻿<!DOCTYPE HTML>
 <html>
-    <head>
-    <meta charset="UTF-8">
-    <title>Offline Application</title>
-    <style type="text/css">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Offline Application</title>
+	<style type="text/css">
 		.offline {
 			padding: 5px;
 			background: red;
 			color: white;
 		}
+
 		.online {
 			padding: 5px;
 			background: green;
 			color: white;
 		}
 	</style>
-    <script src="../jquery.js"></script>
-    <script>
+	<script src="../jquery.js"></script>
+	<script>
 		$(document).ready(init);
-        function init(){
+		function init() {
 			$("#check").click(checkHandler);
 			//自動偵測window連線狀態
+			$(window).on("online", onlineHandler);
+			$(window).on("offline", offlineHandler);
+		}
 
-        }
+		//連線
+		function onlineHandler() {
+			//alert("online");
+			checkHandler();
+		}
 
-        //連線
-        function onlineHandler() {
+		//離線
+		function offlineHandler() {
+			//alert("offline");
+			checkHandler()
+		}
 
-        }
-
-        //離線
-        function offlineHandler() {
-
-        }
-
-        //偵測連線狀態
-        function checkHandler(){
+		//偵測連線狀態
+		function checkHandler() {
 			var status = navigator.onLine;
 			var info = $("#status");
-		
-			if (status){
+
+			if (status) {
 				info.text("Online");
 				info.removeClass("offline");
 				info.addClass("online");
-			}else{
+			} else {
 				info.text("Offline");
 				info.removeClass("online");
 				info.addClass("offline");
 			}
 		}
-    </script>
-    </head>
-    <body>
-        <span id="status" class="offline">Unknow</span>
-        <button id="check">Check Connection</button>
-    </body>
+	</script>
+</head>
+
+<body>
+	<span id="status" class="offline">Unknow</span>
+	<button id="check">Check Connection</button>
+</body>
+
 </html>

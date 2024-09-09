@@ -1,42 +1,67 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Drag and Drop</title>
-    
+
     <style>
-    .srp{
-        border:1px solid black;
-        width:180px;
-        height:180px;
-        float:left;
-        text-align:center;
-    }
-    .srp img{
-        width:150px;
-    }
+        .srp {
+            border: 1px solid black;
+            width: 180px;
+            height: 180px;
+            float: left;
+            text-align: center;
+        }
+
+        .srp img {
+            width: 150px;
+        }
     </style>
     <script src="../jquery.js"></script>
     <script>
-    var dragSupport;
-    var messageObj;
-    
-    function isDragEnabled(e){
-        if("draggable" in $("<span>")[0]){
-            return true;
-        }else{
-            return false;
+        var dragSupport;
+        var messageObj;
+
+        function isDragEnabled(e) {
+            if ("draggable" in $("<span>")[0]) {
+                return true;
+            } else {
+                return false;
+            }
         }
-    }
-    $(document).ready(init);
-    function init(){
-        messageObj = $(".message");
-        if(isDragEnabled()){
-            messageObj.text("Drag and drop support.");
-        }else{
-            messageObj.text("Drag and drop not support.");
+        $(document).ready(init);
+        function init() {
+            messageObj = $(".message");
+            if (isDragEnabled()) {
+                messageObj.text("Drag and drop support.");
+                var dragItem = $("#dragImage");
+                dragItem.on("dragstart", dragStartHandler);
+
+                var dropItem = $("#dropZone");
+                dropItem.on("dragover", dragoverHandler);
+                dropItem.on("drop", dropHandler);
+            } else {
+                messageObj.text("Drag and drop not support.");
+            }
         }
-    }
+        function dragStartHandler(e) {
+            //console.log("dragStart");
+            console.log(e.target.dataset.value);//scissors
+            //console.log(e.target.dataset.price);//20
+            e.originalEvent.dataTransfer.setData("data", e.target.dataset.value);
+        }
+        function dragoverHandler(e) {
+            e.preventDefault();
+            //console.log("dragover");
+        }
+        function dropHandler(e) {
+            e.preventDefault();
+            //console.log("drop");
+            var data = e.originalEvent.dataTransfer.getData("data");
+            alert(data);
+        }
+
     </script>
 </head>
 
@@ -46,7 +71,8 @@
         <p class="message">Game Start!!!</p>
         <div id="gameArea">
             <div id="srp1" class="srp">
-                <img id="dragImage" src="images/Scissors.png" draggable="true" alt="">
+                <img id="dragImage" src="images/Scissors.png" draggable="true" alt="" data-price="20"
+                    data-value="scissors">
                 <footer>Scissors</footer>
             </div>
             <div class="srp">
@@ -56,4 +82,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -1,30 +1,71 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <title>History</title>
     <style>
+        a {
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        a:hover {
+            background: red;
+            color: white;
+        }
+
+        /*
+		ul{
+			background: yellow;
+		}
+		li{
+			background: cyan;
+		}
 		a{
-			text-decoration:none;
-			padding:5px;
+			background: orange;
 		}
-		
-		a:hover{
-			background:red;
-			color:white;
-		}
+		*/
     </style>
     <script src="../jquery.js"></script>
     <script>
-    //Data JSON
-	
-    $(document).ready(init);
-    function init(){
-    }
-    
-    //click處理邏輯
-    function clickHandler(e){
-    }
+        //Data JSON
+        var data = {
+            User1: { name: "Ken", age: 21 },
+            User2: { name: "Mary", age: 22 },
+            User3: { name: "Carol", age: 23 },
+            User4: { name: "Tony", age: 24 }
+        }
+        //alert(data.User1);//{name:"Ken",age:21}
+        //alert(data.User1.name);//"Ken"
+        //alert(data."User1");//{name:"Ken",age:21}//NO
+        //alert(data["User1"]);//{name:"Ken",age:21}//OK
+        //alert(data["User1"].name);//"Ken"
+
+        $(document).ready(init);
+        function init() {
+            if (history) {
+                $("#status").text("Support!");
+                $("#examples").click(clickHandler);
+            } else {
+                $("#status").text("Not support!");
+            }
+        }
+
+        //click處理邏輯
+        function clickHandler(e) {
+            e.preventDefault();
+            //alert(e.target.nodeName);//UL//LI//A
+            if (e.target.nodeName == "A") {
+                //var title = e.target.innerHTML;//text() html()
+                var title = $(e.target).text();//"User1"
+                var url = $(e.target).attr("href");//"first"
+                //data[title] = {name:"Ken",age:21}
+                var message = data[title].name + " / " + data[title].age;//Ken / 21
+                $("#output").text(message);
+                history.pushState(data[title], null, url);
+            }
+        }
     </script>
 </head>
 
@@ -41,4 +82,5 @@
         <div id="output"></div>
     </article>
 </body>
+
 </html>

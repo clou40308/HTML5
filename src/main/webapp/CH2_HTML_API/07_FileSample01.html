@@ -1,47 +1,71 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>File</title>
-    
+
     <style>
-    	#status{
-			padding:5px;
-			font:14px/1.5 Arial, Helvetica, sans-serif;
-		}
-		#preview{
-			width:400px;
-			background:#EEE;
-			padding:10px;
-			border:1px solid #333;
-			display:none;
-		}
+        #status {
+            padding: 5px;
+            font: 14px/1.5 Arial, Helvetica, sans-serif;
+        }
+
+        #preview {
+            /*width:400px;
+			background:#EEE;*/
+            padding: 10px;
+            border: 1px solid #333;
+            display: none;
+        }
     </style>
-    
+
     <script src="../jquery.js"></script>
     <script>
-    var file = undefined;
-    var reader = undefined;
-    $(document).ready(init);
-    function init(){	
-	
-    }
-    
-    function fileChangeHandler(){
-        
-    }
-    
-    function loadendHandler(){
-        
-    }
+        var file = undefined;
+        var reader = undefined;
+        $(document).ready(init);
+        function init() {
+            file = $("#fileInput")[0];//<input type="file"
+            //file = document.getElementById("fileInput");//<input type="file"
+            $("#fileInput").change(fileChangeHandler);
+            reader = new FileReader();
+            $(reader).on("load", loadendHandler);
+        }
+
+        function fileChangeHandler() {
+            //alert(file);//<input type="file"
+            //alert(file.files);//FileList
+            //alert(file.files[0]);//File
+            //alert(file.files.length);//1/0 cancel
+
+            if (file.files.length > 0) {
+                var selectedFile = file.files[0];
+                var message = "Name: " + selectedFile.name + "<br>";
+                message += "Size: " + selectedFile.size + "<br>";
+                message += "Type: " + selectedFile.type + "<br>";
+                $("#status").html(message);
+                reader.readAsDataURL(selectedFile);
+            } else {
+                $("#status").html("No file selected!");
+            }
+        }
+
+        function loadendHandler() {
+            $("#preview").attr("src", reader.result);
+            $("#preview").fadeIn(500);
+        }
     </script>
 </head>
 
 <body>
     <div>
-        <input type="file" id="fileInput" value="">
+        <input type="file" id="fileInput" value="" accept="image/jpeg,image/png">
     </div>
     <div id="status"></div>
     <img id="preview" alt="">
+    <hr>
+    <img src="images/connect_yes.png">
 </body>
+
 </html>

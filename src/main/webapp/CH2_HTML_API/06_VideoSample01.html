@@ -1,94 +1,97 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Video Player</title>
-    
-    <style>
-		#videoPlayer{
-			background:#CCC;
-			padding:10px;
-			border:1px solid #666;
-			box-shadow:5px 5px 5px #666;
-			margin-bottom:10px;
+	<meta charset="UTF-8">
+	<title>Video Player</title>
+
+	<style>
+		#videoPlayer {
+			background: #CCC;
+			padding: 10px;
+			border: 1px solid #666;
+			box-shadow: 5px 5px 5px #666;
+			margin-bottom: 10px;
 		}
-		
-		#fullscreenButton{
-			background:red;
-			color:white;
+
+		#fullscreenButton {
+			background: red;
+			color: white;
 		}
-    </style>
-    
-    <script src="../jquery.js"></script>
-    <script>
+	</style>
+
+	<script src="../jquery.js"></script>
+	<script src="myLib.js"></script>
+	<script>
 		var video = undefined;
 		$(document).ready(init);
-		function init(){
+		function init() {
 			$("#playButton").click(playHandler);
 			$("#pauseButton").click(pauseHandler);
 			$("#volumeUpButton").click(volumeUpHandler);
 			$("#volumeDownButton").click(volumeDownHandler);
-			
+			video = $("#videoPlayer")[0];
+			video.volume = 0.5;
+
 			//video 事件註冊
-			
+			$("#videoPlayer").on("play", startPlayHandler);
+			$("#videoPlayer").on("timeupdate", timeupdateHandler);
+			$("#videoPlayer").on("ended", endedHandler);
 			//全螢幕按鈕 事件註冊
-			
-			
+			$("#fullscreenButton").click(fullscreenHandler);
 		}
 		//播放
-		function playHandler()
-		{
-			
+		function playHandler() {
+			video.play();
 		}
 		//暫停
-		function pauseHandler()
-		{
-		
+		function pauseHandler() {
+			video.pause();
 		}
 		//加音量
-		function volumeUpHandler()
-		{
-			
+		function volumeUpHandler() {
+			//video.volume = 1;
+			video.volume += 0.1;
 		}
 		//減音量
-		function volumeDownHandler()
-		{
-			
+		function volumeDownHandler() {
+			//video.volume = 0;
+			video.volume -= 0.1;
 		}
 		//播放開始
-		function startPlayHandler()
-		{
-			
+		function startPlayHandler() {
+			$("#status").text("start");
 		}
 		//播放歷程
-		function timeupdateHandler()
-		{
-			
+		function timeupdateHandler() {
+			var message = convert(video.currentTime) + " / " + convert(video.duration);
+			$("#status").text(message);
 		}
 		//播放結束
-		function endedHandler()
-		{
-			
+		function endedHandler() {
+			$("#status").text("ended");
 		}
 		//全螢幕
-		function fullscreenHandler(e)
-		{
-			
+		function fullscreenHandler(e) {
+			video.requestFullscreen();
 		}
-    </script>
+	</script>
 </head>
 
 <body>
-    <div>
-        <input type="button" id="playButton" value="Play">
-        <input type="button" id="pauseButton" value="Pause">
-        <input type="button" id="volumeUpButton" value="+">
-        <input type="button" id="volumeDownButton" value="-">
-        <input type="button" id="fullscreenButton" value="Full Screen">
-    </div>
-    
-    <div id="status">Information</div>
-    <!--write code here-->
-    
+	<div>
+		<input type="button" id="playButton" value="Play">
+		<input type="button" id="pauseButton" value="Pause">
+		<input type="button" id="volumeUpButton" value="+">
+		<input type="button" id="volumeDownButton" value="-">
+		<input type="button" id="fullscreenButton" value="Full Screen">
+	</div>
+	<div id="status">Information</div>
+
+	<!-- controls muted loop autoplay width="300" height="200"  640x360-->
+	<video id="videoPlayer" controls poster="images/poster.jpg">
+		<source src="images/test.mp4" type="video/mp4">
+	</video>
 </body>
+
 </html>
