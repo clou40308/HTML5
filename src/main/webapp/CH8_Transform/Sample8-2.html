@@ -1,55 +1,57 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Transform</title>
+	<meta charset="UTF-8">
+	<title>Transform</title>
 
-<style>
-#container{
-	height:200px;
-	margin:50px;
-	display:flex;
-	flex-direction:row; 
-	align-items:center;
-	justify-content:space-between;
-}
+	<style>
+		#container {
+			height: 200px;
+			margin: 50px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
 
-#container img{
-	display:block;
-	/*write code here*/
-}
+		#container img {
+			display: block;
+			/*write code here*/
+			transform-origin: center bottom;
+		}
 
-#container img:nth-child(1){
-	
-}
+		#container img:nth-child(1) {
+			transform: scale(1, 1);
+		}
 
-#container img:nth-child(2){
-	
-}
+		#container img:nth-child(2) {
+			transform: scale(1.5);
+		}
 
-#container img:nth-child(3){
-	
-}
+		#container img:nth-child(3) {
+			transform: scale(1.5, 0.75);
+		}
 
-#container img:nth-child(4){
-	
-}
+		#container img:nth-child(4) {
+			transform: scale(0.75, 1.5);
+		}
 
-#container img:nth-child(5){
-	
-}
-
-</style>
+		#container img:nth-child(5) {
+			transform: scale(1, -1);
+		}
+	</style>
 </head>
 
 <body>
-<div id="container">
-    <img src="images/chrome.png">
-    <img src="images/firefox.png">
-    <img src="images/ie.png">
-    <img src="images/opera.png">
-    <img src="images/safari.png">
-</div>
+	<div id="container">
+		<img src="images/chrome.png">
+		<img src="images/firefox.png">
+		<img src="images/ie.png">
+		<img src="images/opera.png">
+		<img src="images/safari.png">
+	</div>
 
 </body>
+
 </html>

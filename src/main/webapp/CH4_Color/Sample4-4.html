@@ -1,30 +1,63 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Color</title>
+    <meta charset="UTF-8">
+    <title>Color</title>
 
-<style>
-body{
-	margin:0;
-	padding:0;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
-h1{
-	margin:3px;
-	font-size:30px;
-	font-family:Tahoma, Geneva, sans-serif;
-	color:rgba(255, 255, 255, 0.7);
-}
+        h1 {
+            margin: 3px;
+            font-size: 30px;
+            font-family: Tahoma, Geneva, sans-serif;
+            color: rgba(255, 255, 255, 0.7);
+        }
 
-p{
-	margin:0;
-	padding:5px;
-}
+        p {
+            margin: 0;
+            padding: 5px;
+        }
 
-/*write code here*/
+        #container {
+            margin: 10px auto;
+            /*write code here*/
 
-</style>
+            background: url(images/html5_bg.jpg);
+
+            width: 600px;
+            height: 375px;
+            position: relative;
+        }
+
+        #logo {
+            color: white;
+            width: 300px;
+            height: 120px;
+            border: 2px solid #EEE;
+            position: absolute;
+            left: 40px;
+            top: 90px;
+            background: rgb(226, 149, 201);
+            opacity: 0.3;
+        }
+
+        #show {
+            color: white;
+            width: 300px;
+            height: 120px;
+            border: 2px solid #EEE;
+            position: absolute;
+            left: 230px;
+            top: 220px;
+            overflow: auto;
+            background: rgba(226, 149, 201, 0.3);
+        }
+    </style>
 </head>
 
 <body>
@@ -32,15 +65,19 @@ p{
         <div id="logo">
             <h1>An HTML5 Logo</h1>
             <p>
-                It stands strong and true, resilient and universal as the markup you write. It shines as bright and as bold as the forward-thinking, dedicated web developers you are. It's the standard's standard, a pennant for progress. And it certainly doesn't use tables for layout.
+                It stands strong and true, resilient and universal as the markup you write. It shines as bright and as
+                bold as the forward-thinking, dedicated web developers you are. It's the standard's standard, a pennant
+                for progress. And it certainly doesn't use tables for layout.
             </p>
         </div>
         <div id="show">
             <h1>Show Some Love</h1>
             <p>
-              This HTML5 logo is licensed under Creative Commons Attribution 3.0 — all are free to use and reimagine as they see fit. Stickers and T-Shirts are available now; more stuff to come.
+                This HTML5 logo is licensed under Creative Commons Attribution 3.0 — all are free to use and reimagine
+                as they see fit. Stickers and T-Shirts are available now; more stuff to come.
             </p>
         </div>
     </div>
 </body>
+
 </html>

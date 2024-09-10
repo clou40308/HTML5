@@ -1,19 +1,19 @@
-﻿<!doctype html>
+﻿
+<!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Flexible Box Layout</title>
 
 <style>
-
+body{
+	margin: 0px;
+}
 #container{
 	border:1px dashed black;
 	
-	display:-webkit-flex;
 	display:flex;
-
-	-webkit-flex-direction:row;
-	flex-direction:row;
+	flex-direction: row;/*row column*/
 }
 
 .boxitem{
@@ -28,25 +28,24 @@
 	text-shadow:0 2px 2px black;
 }
 
-/*wirte code here*/
 #item1{
-
+	flex-grow: 1;
 }
 
 #item2{
-
+	flex-grow: 1;
 }
 
 #item3{
-
+	flex-grow: 1;
 }
 
 #item4{
-
+	flex-grow: 1;
 }
 
 #item5{
-
+	flex-grow: 1;
 }
 </style>
 </head>

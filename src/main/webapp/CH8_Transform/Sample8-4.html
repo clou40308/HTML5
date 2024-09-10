@@ -1,33 +1,36 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Transform</title>
+	<meta charset="UTF-8">
+	<title>Transform</title>
 
-<style>
-#container{
-	height:200px;
-	margin:50px;
-	display:flex;
-	flex-direction:row; 
-	align-items:center;
-	justify-content:space-between;
-}
+	<style>
+		#container {
+			height: 200px;
+			margin: 50px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
 
-#container img{
-	display:block;
-	-webkit-transform-origin:center bottom;
-	-moz-transform-origin:center bottom;
-	transform-origin:center bottom;
-	/*write code here*/
-	
-}
+		#container img {
+			display: block;
+			transform-origin: center bottom;
+			/*write code here*/
+			opacity: 0.3;
+			transition: opacity 1s;
+			transition: transform 1s;
+			transition: transform 2.5s, opacity 500ms;
+			transition: all 1.2s;
+		}
 
-#container img:hover{
-
-}
-
-</style>
+		#container img:hover {
+			opacity: 1;
+			transform: scale(1.5);
+		}
+	</style>
 </head>
 
 <body>
@@ -39,4 +42,5 @@
 		<img src="images/safari.png">
 	</div>
 </body>
+
 </html>
