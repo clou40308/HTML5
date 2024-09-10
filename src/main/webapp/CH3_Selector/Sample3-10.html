@@ -1,24 +1,28 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Attribute</title>
+    <meta charset="UTF-8">
+    <title>Attribute</title>
 
-<style>
-a{
-	border:1px solid gray;
-	padding:5px;
-	text-decoration:none;
-	color:white;
-	background:#999;
-}
+    <style>
+        a {
+            border: 1px solid gray;
+            padding: 5px;
+            text-decoration: none;
+            color: white;
+            background: #999;
+        }
 
-a:hover{
-	text-decoration:underline;
-}
-/*write code here*/
+        a:hover {
+            text-decoration: underline;
+        }
 
-</style>
+        /*write code here*/
+        a[href$=".com"] {
+            background: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,4 +34,5 @@ a:hover{
         <a href="/files/help.pdf">Document</a>
     </div>
 </body>
+
 </html>

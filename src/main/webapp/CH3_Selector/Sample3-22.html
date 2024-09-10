@@ -1,12 +1,24 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>nth-child Selectors</title>
-<style>
-/*write code here*/
 
-</style>
+<head>
+    <meta charset="UTF-8">
+    <title>nth-child Selectors</title>
+    <style>
+        #order1 li:nth-child(-1n+3),
+        #order1 li:nth-child(1n+8) {
+            color: red;
+        }
+
+        #order2 li:nth-child(1n+4):nth-child(-1n+7) {
+            color: red;
+        }
+
+        #order3 li:nth-child(2n+1):not(:nth-child(5)),
+        #order3 li:nth-child(6) {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +35,7 @@
         <li>Nine</li>
         <li>Ten</li>
     </ol>
-    
+
     <ol id="order2">
         <li>One</li>
         <li>Two</li>
@@ -36,7 +48,7 @@
         <li>Nine</li>
         <li>Ten</li>
     </ol>
-    
+
     <ol id="order3">
         <li>One</li>
         <li>Two</li>
@@ -50,4 +62,5 @@
         <li>Ten</li>
     </ol>
 </body>
+
 </html>

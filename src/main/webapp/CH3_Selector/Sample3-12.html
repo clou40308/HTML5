@@ -1,49 +1,99 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Pseudo</title>
-<style>
-#subscribe{
-	width:400px;
-	height:220px;
-	background:#FC6;
-	padding:20px;
-}
+    <meta charset="UTF-8">
+    <title>Pseudo</title>
+    <style>
+        #subscribe {
+            width: 400px;
+            height: 220px;
+            background: #FC6;
+            padding: 20px;
+        }
 
-#subscribe h1{
-	margin:0;
-}
+        #subscribe h1 {
+            margin: 0;
+        }
 
-/*write code here*/
-</style>
-<script src="../jquery.js"></script>
-<script>
-$(document).ready(init);
-function init(){
-}
-</script>
+        label {
+            display: inline-block;
+            width: 40px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        input[type="email"] {
+            width: 250px;
+            border: none;
+            border-bottom: 1px dashed gray;
+            background: #eee;
+        }
+
+        #email:enabled {
+            border: 2px solid green;
+        }
+
+        #email:disabled {
+            border: 2px solid red;
+            background: #444;
+        }
+
+        #agree:checked+span {
+            /*margin-right: 50px;*/
+            color: red;
+        }
+
+        input:valid {
+            background: lightgreen;
+            border: 2px solid green;
+        }
+
+        input:invalid {
+            background: pink;
+            border: 2px solid red;
+        }
+
+        /*write code here*/
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(document).ready(init);
+        function init() {
+            $("#agree").change(changeHandler);
+        }
+        function changeHandler(e) {
+            if (e.target.checked) {
+                $("#email").removeAttr("disabled");
+            } else {
+                $("#email").attr("disabled", "");
+            }
+        }
+    </script>
 </head>
 
 <body>
     <div id="subscribe">
         <h1>personal information</h1>
         <p>
-            <label>Name</label>
-            <input id="name" name="name" type="text">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="url" required>
         </p>
         <p>
             <label>Phone</label>
-            <input id="phone" name="phone" type="text">
+            <input id="phone" name="phone" type="number" value="40" max="50" min="30">
         </p>
         <p>
             <input id="agree" name="agree" type="checkbox" value="subscribe" checked>
-            Please send me monthly discounts!
+            <span>Please send me monthly discounts!</span>
         </p>
         <p>
             <label>Email</label>
-            <input id="email" name="email" type="text">
+            <input id="email" name="email" type="email">
         </p>
     </div>
 </body>
+
 </html>

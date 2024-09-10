@@ -1,17 +1,21 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Negation Pseudo</title>
+    <meta charset="UTF-8">
+    <title>Negation Pseudo</title>
 
-<style>
-img{
-    border:5px solid #CCC;
-    cursor:pointer;
-}
-/*write code here*/
+    <style>
+        img {
+            border: 5px solid #CCC;
+            cursor: pointer;
+        }
 
-</style>
+        /*write code here*/
+        img:not([alt~="thumb"]) {
+            border: 3px solid red;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,4 +28,5 @@ img{
         <img src="images/type_thumb.jpg" alt="type thumb">
     </div>
 </body>
+
 </html>

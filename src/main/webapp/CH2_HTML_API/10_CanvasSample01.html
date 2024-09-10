@@ -1,23 +1,52 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Canvas</title>
-    
-	<script src="../jquery.js"></script>
+
+    <script src="../jquery.js"></script>
     <script>
-    $(document).ready(init);
-    function init(){
-    }
-    
-    function loadCompleteHandler(){   
-    }
+        $(document).ready(init);
+        function init() {
+            var image = new Image();
+            //var image = $("<img>")[0];
+            $(image).on("load", loadCompleteHandler);
+            $(image).attr("src", "images/magicLapse_banner.jpg");
+        }
+
+        function loadCompleteHandler() {
+            var canvas = $("#banner")[0];
+            //var canvas = document.getElementById("banner");
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(this, 0, 0);
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 30;
+            ctx.lineJoin = "round"; //miter bevel round
+            ctx.moveTo(400, 100);
+            ctx.lineTo(400, 200);
+            ctx.lineTo(800, 200);
+            ctx.stroke();
+
+            ctx.textAlign = "start";//start center right
+            ctx.font = "bold 8em Arial";
+
+            ctx.fillStyle = "yellow";
+            ctx.fillText("Hello", 100, 150);
+
+            ctx.strokeStyle = "orange";
+            ctx.lineWidth = 10;
+            ctx.strokeText("Hello", 100, 100);
+
+        }
     </script>
-</head>
 
 <body>
-    <div id="banner" width="910" height="425">
-    	Your browser does not support canvas. Please upgrade to the lastest version of Chrome, Firefox or Safari.
-    </div>
+    <canvas id="banner" width="910" height="425">
+        Your browser does not support canvas. Please upgrade to the lastest version of Chrome, Firefox or Safari.
+    </canvas>
+    <hr>
+    <img src="images/magicLapse_banner.jpg">
 </body>
+
 </html>

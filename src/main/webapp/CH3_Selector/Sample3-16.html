@@ -1,24 +1,32 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Structural Selectors</title>
+    <meta charset="UTF-8">
+    <title>Structural Selectors</title>
 
-<style>
-#item_a{
-	background:#CCC;
-}
+    <style>
+        #item_a {
+            background: #CCC;
+        }
 
-#item_b{
-	background:#DDD;
-}
+        #item_b {
+            background: #DDD;
+        }
 
-#item_c{
-	background:#EEE;
-}
-/*write code here*/
+        #item_c {
+            background: #EEE;
+        }
 
-</style>
+        /*write code here*/
+        ul li:only-child {
+            color: red;
+        }
+
+        ul li:empty {
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,4 +49,5 @@
         <li></li>
     </ul>
 </body>
+
 </html>

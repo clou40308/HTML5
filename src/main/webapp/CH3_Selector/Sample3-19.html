@@ -1,12 +1,25 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Structural Selectors</title>
-<style>
-/*write code here*/
 
-</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Structural Selectors</title>
+    <style>
+        /*
+p:nth-child(2){
+	color: red;
+}
+p:nth-last-child(3){
+	color: red;
+}
+p:nth-of-type(2){
+	color: red;
+}
+*/
+        p:nth-last-of-type(2) {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,4 +40,5 @@
         </div>
     </div>
 </body>
+
 </html>

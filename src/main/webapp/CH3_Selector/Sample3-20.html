@@ -1,12 +1,27 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>nth-child Selectors</title>
-<style>
-/*write code here*/
 
-</style>
+<head>
+    <meta charset="UTF-8">
+    <title>nth-child Selectors</title>
+    <style>
+        /*write code here*/
+        #order1 li:nth-child(even) {
+            color: red;
+        }
+
+        #order1 li:nth-child(odd) {
+            color: blue;
+        }
+
+        #order2 li:nth-of-type(even) {
+            color: red;
+        }
+
+        #order2 li:nth-of-type(odd) {
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +38,7 @@
         <li>Nine</li>
         <li>Ten</li>
     </ol>
-    
+
     <ol id="order2">
         <li>One</li>
         <li>Two</li>
@@ -37,4 +52,5 @@
         <li>Ten</li>
     </ol>
 </body>
+
 </html>
